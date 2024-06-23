@@ -6,6 +6,6 @@ namespace MIX_QUASTIONS;
 public class Quastion
 {
     public string Text { get; set; } = null!;
-    [JsonPropertyName("answer")]
+    [JsonPropertyName("answers")]
     public List<Variant> Variants { get; set; } = [];
 }

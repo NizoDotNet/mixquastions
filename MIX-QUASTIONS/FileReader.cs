@@ -38,8 +38,10 @@ public class FileReader : IDisposable
                     line = _reader.ReadLine();
                     if (line.Length > 2 && _variantForms.Contains(line[0..2]))
                     {
+                        bool isCorrect = false; 
+                        if(i == 0) isCorrect = true;
                         i++;
-                        quastion.Variants.Add(new(line[2..]));
+                        quastion.Variants.Add(new(line[2..], isCorrect));
                     }
                     else if (!string.IsNullOrEmpty(line)) quastion.Text += line;
                 }

@@ -1,20 +1,18 @@
 ﻿using MIX_QUASTIONS;
+using System.Text.Json;
 
 using FileReader fileReader = new("q.txt");
 fileReader.StartParsing();
-/*foreach (var item in fileReader.Quastions)
+Subject subject = new();
+subject.Quastions = fileReader.Quastions;
+/*var options = new JsonSerializerOptions
 {
-    ConsoleColor color = Console.BackgroundColor;
-    Console.BackgroundColor = ConsoleColor.White;
-    Console.WriteLine(new string('-', 5));
-    Console.BackgroundColor = color;
-    Console.WriteLine(item.Text);
-    foreach (var item1 in item.Variants)
-    {
-        Console.WriteLine(item1.Text);
-    }
-}
-*/
+    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+};*/
+/*string json = JsonSerializer.Serialize(subject, options);
+
+
+File.WriteAllText("./x.json", json);*/
 using FileWriter fileWriter = new("m.txt");
 ListShuffler shuffler = new();
 for (int i = 0; i < fileReader.Quastions.Count; i++)
